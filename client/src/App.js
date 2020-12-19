@@ -13,7 +13,7 @@ function App() {
     </h1>
     <p>Navigate to /products/ to see available products</p>
       <Router>       
-        <Main path="products/" />
+        <Main path="products/" default/>
         <Detail path="products/:id" />
         <UpdateProduct path="products/:id/edit/"/>
       </Router>
