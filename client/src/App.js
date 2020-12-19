@@ -8,7 +8,7 @@ import Main from './views/Main';
 
 function App() {
   return (
-    <div>      
+    <div className="App"> 
       <Router>       
         <Main path="products/" default/>
         <Detail path="products/:id" />
