@@ -8,7 +8,10 @@ import Main from './views/Main';
 
 function App() {
   return (
-    <div className="App">      
+    <div className="App"> 
+    <h1> This is a Product Manager App. 
+    </h1>
+    <p>Navigate to /products/ to see available products</p>
       <Router>       
         <Main path="products/" />
         <Detail path="products/:id" />
