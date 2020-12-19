@@ -8,9 +8,9 @@ import Main from './views/Main';
 
 function App() {
   return (
-    <div className="App">      
+    <div>      
       <Router>       
-        <Main path="products/" />
+        <Main path="products/" default/>
         <Detail path="products/:id" />
         <UpdateProduct path="products/:id/edit/"/>
       </Router>

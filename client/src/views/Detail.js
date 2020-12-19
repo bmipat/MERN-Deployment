@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
+import Button from 'react-bootstrap/Button';
 
 export default props => {
     const { removeFromDom } = props;
-    const ProductStyle = {
-        'width': '100px',
-        'height': '30px',
-        'borderRadius': 9,
-        'borderWidth': 1,
-        'borderColor': '#fff'
-    }
+   
     const [product, setProduct] = useState({})
     useEffect(() => {
         axios.get("http://localhost:8000/api/products/" + props.id)
@@ -27,9 +22,9 @@ export default props => {
             })
     }
     return (
-        <div>
+        <div className="container w-50">
             <Link to={"/products/"}>
-                <button style={ProductStyle}>Back</button>
+                <Button variant="secondary" size="sm">Back</Button>
             </Link>
 
             <h2>Product Detail</h2>
@@ -37,9 +32,9 @@ export default props => {
             <p>Price: {product.price}</p>
             <p>Description: {product.description}</p>
             <Link to={"/products/" + product._id +"/edit/"}>
-                <button style={ProductStyle}>Edit</button>
-            </Link>
-            <button style={ProductStyle} onClick={(e) => { removeProduct(product._id) }}>Delete</button>
+                <Button variant="primary" size="sm">Edit</Button>
+            </Link>{' '}
+            <Button variant="danger" size="sm" onClick={(e) => { removeProduct(product._id) }}>Delete</Button>
         </div>
     )
 }

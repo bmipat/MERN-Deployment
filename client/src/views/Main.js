@@ -21,10 +21,15 @@ export default () => {
             })
     }
     return (
-        <div>
-            <Form onSubmitProp={createProduct} defaultTitle="" defaultPrice="" defaultDescription=""/>            
-            <hr />
-            {loaded && <ProductList products={products} />}
-        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <Form onSubmitProp={createProduct} defaultTitle="" defaultPrice="" defaultDescription="" />
+                    </div>
+                    <div class="col">
+                        {loaded && <ProductList products={products} />}
+                    </div>
+                </div>
+            </div>
     )
 }

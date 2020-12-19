@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from 'react-bootstrap/Button';
 
 const Form = (props) =>{
     const { defaultTitle, defaultPrice, defaultDescription, onSubmitProp } = props;
@@ -15,14 +16,21 @@ const Form = (props) =>{
         <div>
             <form onSubmit={createProduct}>
                 <h1>Product Manager</h1>
-                <label>Title </label>
-                <input type="text" onChange={e => setTitle(e.target.value)}></input><br></br>
-                <label>Price </label>
-                <input type="text" onChange={e => setPrice(e.target.value)}></input><br></br>
-                <label>Description </label>
-                <input type="text" onChange={e => setDescription(e.target.value)}></input><br></br>
-                <br></br>                
-                <button type="submit">Create</button>
+                <div className="form-group">
+                    <label>Title </label>
+                    <input className="form-control" type="text" onChange={e => setTitle(e.target.value)}></input>                
+                </div>
+                <div className="form-group">
+                    <label>Price </label>
+                    <input className="form-control" type="text" onChange={e => setPrice(e.target.value)}></input>
+                </div>
+                <div className="form-group">
+                    <label>Description </label>
+                    <input className="form-control" type="text" onChange={e => setDescription(e.target.value)}></input>
+                </div> 
+                <div className="mb-2">               
+                    <Button type="submit" variant="success" size="sm">Create</Button>
+                </div>
             </form>            
         </div>
     )

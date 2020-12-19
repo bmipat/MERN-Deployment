@@ -1,24 +1,21 @@
 import React from 'react'
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import { navigate } from '@reach/router';
+
 export default props => {
-    const { productId, successCallback } = props;
-    const ProductStyle = {
-        'margin-left': '50px',
-        'width': '100px',
-        'height': '30px',
-        'borderRadius': 9,
-        'borderWidth': 1,
-        'borderColor': '#fff'
-    }
+    const { productId , setModalIsOpen} = props;
+    
     const deleteProduct = e => {
         axios.delete('http://localhost:8000/api/products/' + productId)
             .then(res => {
-                successCallback();
+                setModalIsOpen(false)
+                navigate('/products/');                
             })
     }
     return (
-        <button style={ProductStyle} onClick={deleteProduct}>
-            Delete
-        </button>
+        <Button variant="success" size="sm" onClick={deleteProduct}>
+            Yes
+        </Button>
     )
 }
